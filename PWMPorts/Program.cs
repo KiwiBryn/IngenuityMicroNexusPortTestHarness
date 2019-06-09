@@ -34,8 +34,12 @@ namespace devMobile.IoT.IngenuityMicro.Nexus.PWMPorts
 	{
 		public static void Main()
 		{
-			AnalogInput analogSensor = new AnalogInput(Pins.Analog.Socket1Pin1);
-			PWM ledDim = new PWM(Pins.Pwm.Socket6Pin1, 1000.0, 0.0, false);
+			AnalogInput analogSensor = new AnalogInput(Pins.Analog.Socket4Pin1);
+
+			//const Cpu.PWMChannel LedPin = Pins.Pwm.Socket6Pin1;
+			const Cpu.PWMChannel LedPin = Pins.Pwm.Socket6Pin2;
+			
+			PWM ledDim = new PWM(LedPin, 1000.0, 0.0, false);
 
 			ledDim.Start();
 			Debug.Print("Program running");
